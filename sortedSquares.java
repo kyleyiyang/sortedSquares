@@ -1,17 +1,12 @@
-public class HelloWorld{
-
-     public static void main(String []args){
-        System.out.println("Hello World");
-        int[] arr = {-4,-1,0,3,10};
-        for (int i=0;i<arr.length;i++) {
-            arr[i] = arr[i]*arr[i];
+class Solution {
+    public int[] sortedSquares(int[] A) {
+        for (int i=0;i<A.length;i++) {
+            A[i] = A[i]*A[i];
         }
-        mergeSort(arr,0,arr.length-1);
-        for (int i=0;i<arr.length;i++) {
-            System.out.println(arr[i]);
-        }
-     }
-     public static void mergeSort(int[] arr, int p, int q) {
+        mergeSort(A,0,A.length-1);
+        return A;
+    }
+    public static void mergeSort(int[] arr, int p, int q) {
         
          if (p<q) {
              int n = (int)Math.floor((q+p)/2);
@@ -19,8 +14,6 @@ public class HelloWorld{
              mergeSort(arr, n+1, q);
              merge(arr,p,n,q);
          }
-         
-         
      }
      public static void merge(int[] arr, int p, int n, int q) {
          Integer myInf = Integer.MAX_VALUE;
@@ -47,7 +40,5 @@ public class HelloWorld{
                  j++;
              }
          }
-         
      }
-     
 }
